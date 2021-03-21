@@ -1,0 +1,10 @@
+body,html{
+    width: 100%;
+    height: 100%;
+    background-color: #192d55;
+}
+*{
+    color: rgb(255, 255, 255);
+    padding: 0;
+    margin: 0;
+}
