@@ -1,17 +1,18 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import recom from '../pages/online/recom'
-import Main from '../components/main/Main.vue'
-import musicHall from '../pages/online/musicHall'
-import station from '../pages/online/station'
-import video from '../pages/online/video'
+import recom from "../pages/online/recom";
+import Main from "../components/main/Main.vue";
+import musicHall from "../pages/online/musicHall";
+import station from "../pages/online/station";
+import video from "../pages/online/video";
+import login from "../components/main/login";
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    redirect: '/recom',
-    component: Main,
+    redirect: "/recom",
+    component: Main
   },
   {
     path: "/recom",
@@ -44,7 +45,15 @@ const routes = [
     meta:{
       title:"电台"
     }
-  }
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: login,
+    meta:{
+      title:"登录"
+    }
+  },
 ];
 
 const router = new VueRouter({

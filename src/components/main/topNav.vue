@@ -12,10 +12,11 @@
             <input placeholder="搜素音乐" v-model="input"/>
         </div>
         <div class="right">
-            <router-link to="">
+            <router-link to="" v-if="hasId">
                 <img src="" alt="">
+                <span class="name"></span>
             </router-link>
-            <router-link to=""><span class="name">ipad</span></router-link>
+            <router-link to="/login" v-else><span class="login">登录</span></router-link>
             <router-link to=""><i class="el-icon-arrow-down"></i></router-link>
             <router-link to=""><i class="el-icon-setting"></i></router-link>
             <router-link to=""><i class="el-icon-s-operation"></i></router-link>
@@ -85,7 +86,8 @@ export default {
     name:'topNav',
     data(){
         return {
-            input:''
+            input:'',
+            hasId:false
         }
     }
 }

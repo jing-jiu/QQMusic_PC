@@ -2,10 +2,8 @@
     <div class="mymusic">
         <ul>
             <span>我的音乐</span>
-            <li v-for="(item,index) in items" :key="index" @click="Link(index)" :class="{ link:isLink[`isLink${index}`] }">
-                <router-link :to="item.path">
+            <li v-for="(item,index) in items" :key="index" @click="Link(index,item.path)" :class="{ link:isLink[`isLink${index}`] }">
                 <i :class="item.icon"></i> {{ item.name }}
-                </router-link>
             </li>
         </ul>
     </div>
@@ -88,11 +86,12 @@ export default {
         }
     },
     methods:{
-        Link(key){
+        Link(key,ip){
             for (let item in this.isLink) {
                 this.isLink[item] = false
             }
             this.isLink[`isLink${key}`] = true
+            this.$router.push({path:ip})
         }
     }
 }
