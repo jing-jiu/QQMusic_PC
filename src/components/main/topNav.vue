@@ -57,8 +57,8 @@
                 padding: 0 20px;
                 height: 35px;
                 font-size: 12px;
-                background-color: white;
-                opacity: 0.4;
+                background-color: black;
+                opacity: 0.3;
                 border-radius: 18px;
             }
         }

@@ -13,7 +13,7 @@
         width: 920px;
         height: 545px;
         padding: 95px 35px 70px 35px;
-        background-color: purple;
+        background-color: #064C46;
         &::-webkit-scrollbar{
             display:none;
         }
