@@ -1,6 +1,6 @@
 <template>
     <div class="Audio">
-
+        <audio :src="$store.state.audioUrl" controls autoplay></audio>
     </div>
 </template>
 <style lang="less" scoped>

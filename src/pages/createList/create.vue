@@ -1,13 +1,13 @@
 <template>
     <div class="create">
         <div class="info_container">
-            <img :src="data.logo" alt="" class="img">
+            <img :src="data_.logo" alt="" class="img">
             <div class="infobox">
                 <div class="info">
-                    <h1 class="title">{{ data.dissname }}</h1>
+                    <h1 class="title">{{ data_.dissname }}</h1>
                     <div class="user">
-                        <img :src="data.headurl" alt="">
-                        <span class="name"> {{data.nickname}} </span>
+                        <img :src="data_.headurl" alt="">
+                        <span class="name"> {{data_.nickname}} </span>
                     </div>
                     <p class="des">请完善歌单信息，让更多人看到</p>
                 </div>
@@ -21,8 +21,8 @@
         </div>
         <div class="songList">
             <ul class="list">
-                <li v-for="item in data.songlist" :key="item.albumid">
-                    <span> {{ item.songname }} </span>
+                <li v-for="item in data_.songlist" :key="item.songmid">
+                    <div @click="audio(item.songmid)"> {{ item.songname }} </div>
                     <span> {{ item.singer[0].name }} </span>
                     <span> {{ item.albumname }} </span>
                 </li>
@@ -88,7 +88,7 @@
 export default {
     data() {
         return {
-            data:null
+            data_:null
         }
     },
     created() {
@@ -100,11 +100,16 @@ export default {
     methods: {
         async getCreateList(){
             const { data:result } = await this.$http.get('/songlist',{ params : { 'id' : this.$route.query.createlist } })
-            this.data = result.data
-            console.log(this.data);
+            this.data_ = result.data
+            console.log(this.data_);
         },
         change(){
             this.getCreateList()
+        },
+        async audio(id){
+            const { data:result } = await this.$http.get('/song/urls',{ params : { id } })
+            this.$store.state.audioUrl = result.data[id]
+            console.log(this.$store.state.audioUrl);
         }
     },
 }

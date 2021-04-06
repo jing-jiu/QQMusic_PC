@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     id:'1482877448',
+    audioUrl:''
   },
   mutations: {},
   actions: {},
